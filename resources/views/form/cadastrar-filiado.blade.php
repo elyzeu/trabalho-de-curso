@@ -95,8 +95,8 @@ function mascarad(i){
  
             <div class="mt-4">
               <select name="status">
-               <option value="1" >Ativo</option>
-               <option value="0" >Desativado</option>
+               <option value="1" >Contribuinte</option>
+               <option value="0" >Não Contribui</option>
 </select>
             </div>
             
