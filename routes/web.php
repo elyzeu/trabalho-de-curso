@@ -49,6 +49,9 @@ Route::middleware([
 ->group(function () {
     Route::get('/events/cadastro-gasto/save', [ControllerGasto::class, 'store'])->name('cadastrar-gasto-save');
 })
+->group(function () {
+    Route::delete('/events/visita/delet', [ControllerAgendar::class, 'destroy'])->name('destroy-visita-user-agendada');
+})
 
 ->group(function () {
     Route::post('/events/agendar-visita/create', [ControllerAgendar::class, 'store'])->name('agendar-visita-save');
