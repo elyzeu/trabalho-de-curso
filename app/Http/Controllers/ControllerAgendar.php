@@ -32,8 +32,25 @@ class ControllerAgendar extends Controller
    
         $agendar->save();
     
-        return redirect('/');
+        return redirect('/dashboard');
     
+    }
+    public function destroy(){
+        $idlog = Auth::id();
+
+        $user_id = Agendamento::All();
+        
+        foreach($user_id as $user_idv){
+            if( $user_idv->user_id == $idlog){
+                //deleta tudo deste usuário
+                $user_idv->delete();
+
+            }
+        }
+
+        
+
+        return redirect('/dashboard');
     }
     public function listUserAgend(){
        
