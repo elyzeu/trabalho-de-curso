@@ -25,15 +25,20 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-})->group(function () {
+})
+->group(function () {
+    Route::get('/pagina/agendar-visita', function () {
+        return view('form.agendar-visita');
+    })->name('pagina-agendar-visita');
+})
+->group(function () {
     Route::get('/menu', function () {
         return view('menu');
     })->name('menu');
 })
+
 ->group(function () {
-    Route::get('/events/agendar-visita', function () {
-        return view('form.agendar-visita');
-    })->name('agendar-visita-form');
+    Route::get('/events/agendar-visita', [ControllerAgendar::class, 'verific_Cad_ReturnForm'])->name('agendar-visita-form');
 })
 ->group(function () {
     Route::get('/events/cadastrar-gasto', function () {

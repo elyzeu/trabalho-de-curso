@@ -17,7 +17,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <x-jet-validation-errors class="mb-4" />
-            @foreach($agendamento as $agend)
+            @foreach($agendvar as $agend)
             @if($agend->user_id == $id)
             <tr >
             
