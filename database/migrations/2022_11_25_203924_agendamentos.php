@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('name');
             $table->string('email');
+            $table->string('descricao');
             //usar ->unique(); email para aceitar so 1
             $table->time('horario');
             $table->integer('qtd_agendamento')->default('0');
