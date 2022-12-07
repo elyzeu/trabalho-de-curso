@@ -78,6 +78,7 @@ class ControllerAgendar extends Controller
         //informações que serão enviadas ao banco de dados
         $agendar->name = $request->nome;
         $agendar->email = $request->email;
+        $agendar->descricao = $request->descricao;
         $agendar->horario = $request->horario;
        
         //define o valor chave estrangeira com o valor do usuário logado
