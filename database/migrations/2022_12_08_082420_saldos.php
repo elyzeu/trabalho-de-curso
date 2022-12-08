@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         //
-        Schema::create('saldo', function(Blueprint $table){
+        Schema::create('saldos', function(Blueprint $table){
             $table->id();
             $table>numeric('valor');
             $table->timestamps();
