@@ -19,21 +19,28 @@ class ControllerAgendar extends Controller
         //traz todos os agendamentos
         $qtd_agendamento = Agendamento::All();
 
-
-        //traz as informação para qtds_agend
+        if($qtd_agendamento->isEmpty()){
+            return view('form.agendar-visita');
+        }
+        else{
+               //traz as informação para qtds_agend
         foreach($qtd_agendamento as $qtds_agend){
-    }
-                //verifica se o usuario tem uma visita agendada
-                if($qtds_agend->user_id == $id){
+           //verifica se o usuario tem uma visita agendada
+           if($qtds_agend->user_id == $id){
+    
+            //retorna a view de visita agendada
+            return redirect('/events/visitas-agendadas');
 
-                    //retorna a view de visita agendada
-                    return redirect('/events/visitas-agendadas');
+        }
+        else{
+            //caso ele n tenha agendado, retorna o formulario de agendamento
+            return view('form.agendar-visita');
+        }
+        }  
+                   
+                }
         
-                }
-                else{
-                    //caso ele n tenha agendado, retorna o formulario de agendamento
-                    return view('form.agendar-visita');
-                }
+
     }
 
     public function store(Request $request){
@@ -45,11 +52,14 @@ class ControllerAgendar extends Controller
         
 
         //traz todos os agendamentos do banco de dados
+        
         $qtd_agendamento = Agendamento::All();
 
-
-        //tras as informações para qtds_agend
-        foreach($qtd_agendamento as $qtds_agend){
+        if($qtd_agendamento->isEmpty()){
+    }
+    else{
+         //tras as informações para qtds_agend
+         foreach($qtd_agendamento as $qtds_agend){
             
 
             //verifica se o user_id e igual o id do usuario
@@ -72,9 +82,10 @@ class ControllerAgendar extends Controller
                 return redirect('/events/agendar-visita');
             }
             }
-            
         }
+    }
         
+                
         //informações que serão enviadas ao banco de dados
         $agendar->name = $request->nome;
         $agendar->email = $request->email;
@@ -125,27 +136,28 @@ class ControllerAgendar extends Controller
        $idv = Auth::id();
 
        //consulta ao banco para pegar todos os dados
-       $agendvar = Agendamento::all();
+       $agendvar = Agendamento::All();
        
-       foreach($agendvar as $agend_list){
-        //levar informação pra variavel
+       if($agendvar->isEmpty()){
+       return redirect('/events/agendar-visita');
        }
-
-       //verifica se o user_id estrangeiro é identico ao logado
-       if($agend_list->user_id == $idv){
-
-         //retorna a view pra mostrar informação junto com id e a variavel com os dados
-        return view('informacoes.meu-agendamento',['agendvar'=>$agendvar , 'id'=>$idv]);
-        
-}else{
-    //retorna a pagina para agendar visita
-    return redirect('/events/agendar-visita');
-}
-            
-       
+       else{
+        foreach($agendvar as $agend_list){
+            //levar informação pra variavel
+           }
     
-       
+           //validar se a agend ta vazia??????
+           
+                if($agend_list->user_id == $idv){
+        
+                    //retorna a view pra mostrar informação junto com id e a variavel com os dados
+                   return view('informacoes.meu-agendamento',['agendvar'=>$agendvar , 'id'=>$idv]);
+                   
+           }
     }
+}
+       
+
     public function listAllAgend()
     {
         //função listar todos os agendamentos do banco, isto para o administrador
