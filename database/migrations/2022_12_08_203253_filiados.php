@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('cargo');
             $table->string('lotacao');
             $table->string('rg');
-            $table->double('decreto-nomeacao');
+            $table->double('decreto_de_nomeacao');
             $table->double('matricula');
             $table->string('email');
             $table->boolean('status');
