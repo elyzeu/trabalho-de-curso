@@ -78,12 +78,12 @@ Route::middleware([
 })
 
 ->group(function () {
-    Route::get('/events/gasto', function () {
-        return view('form.cadastrar-gasto');
-    })->name('gasto-cadastro-view');
+    Route::get('/events/saldo', function () {
+        return view('form.cadastrar-saldo');
+    })->name('saldo-cadastro-view');
 })
 
 ->group(function () {
-    Route::post('/events/agendar-visita/create', [ControllerSaldo::class, 'store'])->name('saldo-save');
+    Route::post('/events/saldo/save', [ControllerSaldo::class, 'store'])->name('saldo-save');
 })
 ;

@@ -16,7 +16,7 @@ return new class extends Migration
         //
         Schema::create('saldos', function(Blueprint $table){
             $table->id();
-            $table>numeric('valor');
+            $table->double('valor', 8, 2);
             $table->timestamps();
 
         });

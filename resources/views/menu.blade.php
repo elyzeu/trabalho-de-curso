@@ -37,8 +37,8 @@
                         {{ __('Gasto Ver') }}
                     </x-jet-nav-link>
                     <br/>
-                    <x-jet-nav-link href="{{ route('gasto-cadastro-view') }}" :active="request()->routeIs('gasto-cadastro-view')">
-                        {{ __('Saldo Cadastro') }}
+                    <x-jet-nav-link href="{{ route('saldo-cadastro-view') }}" :active="request()->routeIs('saldo-cadastro-view')">
+                        {{ __('Cadastrar Saldo') }}
                     </x-jet-nav-link>
                     <br/>
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
