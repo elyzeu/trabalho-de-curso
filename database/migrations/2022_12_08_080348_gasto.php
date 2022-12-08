@@ -14,6 +14,13 @@ return new class extends Migration
     public function up()
     {
         //
+        Schema::create('gasto', function (Blueprint $table) {
+            $table->id();
+            $table->string('valor');
+            $table->string('descricao');
+            $table->timestamps();
+        });
+
     }
 
     /**
@@ -24,5 +31,6 @@ return new class extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('agendamentos');
     }
 };
