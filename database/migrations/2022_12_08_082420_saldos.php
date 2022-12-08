@@ -14,13 +14,12 @@ return new class extends Migration
     public function up()
     {
         //
-        Schema::create('gasto', function (Blueprint $table) {
+        Schema::create('saldo', function(Blueprint $table){
             $table->id();
-            $table->string('valor');
-            $table->string('descricao');
+            $table>numeric('valor');
             $table->timestamps();
-        });
 
+        });
     }
 
     /**
@@ -31,6 +30,6 @@ return new class extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('agendamentos');
+        Schema::dropIfExists('saldos');
     }
 };

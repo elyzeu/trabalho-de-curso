@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControllerAgendar;
+use App\Http\Controllers\ControllerGasto;
+use App\Http\Controllers\ControllerSaldo;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,7 +64,7 @@ Route::middleware([
 
 //rota que salva os gastos enviados pelo formulario
 ->group(function () {
-    Route::get('/events/cadastro-gasto/save', [ControllerGasto::class, 'store'])->name('cadastrar-gasto-save');
+    Route::post('/events/cadastro-gasto/save', [ControllerGasto::class, 'store'])->name('cadastrar-gasto-save');
 })
 
 //rota para chamada do metodo destroy, para deletar as dividas
@@ -73,4 +75,15 @@ Route::middleware([
 //rota com objetivo de salvar as visitas no banco, por meio do método store
 ->group(function () {
     Route::post('/events/agendar-visita/create', [ControllerAgendar::class, 'store'])->name('agendar-visita-save');
-});
+})
+
+->group(function () {
+    Route::get('/events/gasto', function () {
+        return view('form.cadastrar-gasto');
+    })->name('gasto-cadastro-view');
+})
+
+->group(function () {
+    Route::post('/events/agendar-visita/create', [ControllerSaldo::class, 'store'])->name('saldo-save');
+})
+;
