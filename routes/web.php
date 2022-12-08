@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControllerAgendar;
 use App\Http\Controllers\ControllerGasto;
 use App\Http\Controllers\ControllerSaldo;
+use App\Http\Controllers\ControllerFiliado;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -85,5 +86,13 @@ Route::middleware([
 
 ->group(function () {
     Route::post('/events/saldo/save', [ControllerSaldo::class, 'store'])->name('saldo-save');
+})
+->group(function () {
+    Route::get('/events/filiado', function () {
+        return view('form.cadastrar-filiado');
+    })->name('cadastrar-filiado');
+})
+->group(function () {
+    Route::post('/events/filiado/save', [ControllerFiliado::class, 'store'])->name('cadastrar-filiado-save');
 })
 ;

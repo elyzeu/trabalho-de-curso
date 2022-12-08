@@ -49,7 +49,7 @@
                         {{ __('Ver Saldo') }}
                     </x-jet-nav-link>
                     <br/>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('cadastrar-filiado') }}" :active="request()->routeIs('cadastrar-filiado')">
                         {{ __('Cadastrar Filiado') }}
                     </x-jet-nav-link>
                     <br/>
