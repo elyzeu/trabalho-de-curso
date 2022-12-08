@@ -12,6 +12,10 @@ class ControllerFiliado extends Controller
 
     public function store(Request $request){
         $filiado = new Filiado;
+        
+        $filiado->validate([
+            'field_name' => ['cpf'],
+        ]);
 
         $filiado->nome = $request->nome;
         $filiado->cpf= $request->cpf;
