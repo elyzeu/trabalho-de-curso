@@ -16,19 +16,16 @@
 
             <div class="mt-4">
                 <x-jet-label for="nome" value="{{ __('Nome') }}" />
-                <x-jet-input id="nome" class="block mt-1 w-full" type="text" name="nome" :value="old('nome')" required />
+                <x-jet-input id="nome" class="block mt-1 w-full" type="text" name="nome"  required autocomplete="nome" />
             </div>
 
+        
             <div class="mt-4">
-                <x-jet-label for="cpf" value="{{ __('Cpf') }}" />
-                <x-jet-input id="cpf" class="block mt-1 w-full" type="text" name="cpf" required autocomplete="cpf" />
-            </div>
-            <div class="mt-4">
-                <x-jet-label for="datanascimento" value="{{ __('DataNascimento') }}" />
+                <x-jet-label for="datanascimento" value="{{ __('Data de Nascimento') }}" />
                 <x-jet-input id="datanascimento" class="block mt-1 w-full" type="date" name="datanascimento" required autocomplete="datanascimento" />
             </div>
             <div class="mt-4">
-                <x-jet-label for="dataadmissao" value="{{ __('DataAdmissao') }}" />
+                <x-jet-label for="dataadmissao" value="{{ __('Data de Admissao') }}" />
                 <x-jet-input id="dataadmissao" class="block mt-1 w-full" type="date" name="dataadmissao" required autocomplete="dataadmissao" />
             </div>
             <div class="mt-4">
@@ -44,7 +41,7 @@
                 <x-jet-input id="rg" class="block mt-1 w-full" type="text" name="rg" required autocomplete="rg" />
             </div>
             <div class="mt-4">
-                <x-jet-label for="decretonomeacao" value="{{ __('DecretoNomeacao') }}" />
+                <x-jet-label for="decretonomeacao" value="{{ __('Decreto de Nomeacao') }}" />
                 <x-jet-input id="decretonomeacao" class="block mt-1 w-full" type="text" name="decretonomeacao" required autocomplete="decretonomeacao" />
             </div>
             <div class="mt-4">

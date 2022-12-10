@@ -15,10 +15,20 @@ class ControllerGasto extends Controller
         $gasto->valor = $request->valor;
         $gasto->descricao = $request->descricao;
         $gasto->data = $request->data;
+        $gasto->mes = $request->mes;
 
         $gasto->save();
 
         return redirect('/dashboard');
 
+    }
+
+    public function list(Request $request){
+
+        $gasto = Gasto::All();
+        $mes = $request->mes;
+
+       
+    return view('informacoes.ver-gasto', ['gasto' => $gasto, 'mes'=> $mes]);
     }
 }

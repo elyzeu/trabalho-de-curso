@@ -19,6 +19,7 @@ return new class extends Migration
             $table->double('valor', 8, 2);
             $table->string('descricao');
             $table->date('data');
+            $table->double('mes');
             $table->timestamps();
         });
 

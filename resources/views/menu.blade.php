@@ -33,8 +33,8 @@
                         {{ __('Cadastrar Gasto Adm') }}
                     </x-jet-nav-link>
                     <br/>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Gasto Ver') }}
+                    <x-jet-nav-link href="{{ route('buscar-gasto') }}" :active="request()->routeIs('buscar-gasto')">
+                        {{ __('Ver Gasto') }}
                     </x-jet-nav-link>
                     <br/>
                     <x-jet-nav-link href="{{ route('saldo-cadastro-view') }}" :active="request()->routeIs('saldo-cadastro-view')">
@@ -45,7 +45,7 @@
                         {{ __('Saldo Subtrair') }}
                     </x-jet-nav-link>
                     <br/>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('ver-saldo') }}" :active="request()->routeIs('ver-saldo')">
                         {{ __('Ver Saldo') }}
                     </x-jet-nav-link>
                     <br/>

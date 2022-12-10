@@ -17,4 +17,18 @@ class ControllerSaldo extends Controller
 
         return redirect('/dashboard');
     }
+    public function list(){
+
+        $saldo=Saldo::All();
+
+        if($saldo->isEmpty()){
+            return redirect('/dashboard');
+        }else{
+        foreach($saldo as $saldovar){
+            return view('informacoes.ver-saldo', ['saldo' => $saldovar]);
+        }
+   
+
+        }
+    }
 }

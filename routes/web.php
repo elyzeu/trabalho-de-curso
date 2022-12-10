@@ -67,6 +67,14 @@ Route::middleware([
 ->group(function () {
     Route::post('/events/cadastro-gasto/save', [ControllerGasto::class, 'store'])->name('cadastrar-gasto-save');
 })
+->group(function () {
+    Route::get('/events/buscar-gasto', function () {
+        return view('form.buscar-gasto');
+    })->name('buscar-gasto');
+})
+->group(function () {
+    Route::post('/events/ver-gasto', [ControllerGasto::class, 'list'])->name('ver-gasto');
+})
 
 //rota para chamada do metodo destroy, para deletar as dividas
 ->group(function () {
@@ -86,6 +94,9 @@ Route::middleware([
 
 ->group(function () {
     Route::post('/events/saldo/save', [ControllerSaldo::class, 'store'])->name('saldo-save');
+})
+->group(function () {
+    Route::get('/events/saldo/list', [ControllerSaldo::class, 'list'])->name('ver-saldo');
 })
 ->group(function () {
     Route::get('/events/filiado', function () {
