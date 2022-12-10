@@ -21,12 +21,12 @@
 
         
             <div class="mt-4">
-                <x-jet-label for="datanascimento" value="{{ __('Data de Nascimento') }}" />
-                <x-jet-input id="datanascimento" class="block mt-1 w-full" type="date" name="datanascimento" required autocomplete="datanascimento" />
+                <x-jet-label for="data_nascimento" value="{{ __('Data de Nascimento') }}" />
+                <x-jet-input id="data_nascimento" class="block mt-1 w-full" type="date" name="data_nascimento" required autocomplete="data_nascimento" />
             </div>
             <div class="mt-4">
-                <x-jet-label for="dataadmissao" value="{{ __('Data de Admissao') }}" />
-                <x-jet-input id="dataadmissao" class="block mt-1 w-full" type="date" name="dataadmissao" required autocomplete="dataadmissao" />
+                <x-jet-label for="admissao" value="{{ __('Data de Admissao') }}" />
+                <x-jet-input id="admissao" class="block mt-1 w-full" type="date" name="admissao" required autocomplete="admissao" />
             </div>
             <div class="mt-4">
                 <x-jet-label for="cargo" value="{{ __('Cargo') }}" />
@@ -41,8 +41,8 @@
                 <x-jet-input id="rg" class="block mt-1 w-full" type="text" name="rg" required autocomplete="rg" />
             </div>
             <div class="mt-4">
-                <x-jet-label for="decretonomeacao" value="{{ __('Decreto de Nomeacao') }}" />
-                <x-jet-input id="decretonomeacao" class="block mt-1 w-full" type="text" name="decretonomeacao" required autocomplete="decretonomeacao" />
+                <x-jet-label for="decreto_de_nomeacao" value="{{ __('Decreto de Nomeacao') }}" />
+                <x-jet-input id="decreto_de_nomeacao" class="block mt-1 w-full" type="text" name="decreto_de_nomeacao" required autocomplete="decreto_de_nomeacao" />
             </div>
             <div class="mt-4">
                 <x-jet-label for="matricula" value="{{ __('Matricula') }}" />
@@ -52,11 +52,17 @@
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" required autocomplete="email" />
             </div>
+            <div class="mt-4">
+              <select name="status">
+               <option value="ativo" >Ativo</option>
+               <option value="desativado" >Desativado</option>
+</select>
+            </div>
             
             <div class="flex items-center justify-end mt-4">
 
                 <x-jet-button class="ml-4">
-                    {{ __('Send') }}
+                    {{ __('Enviar') }}
                 </x-jet-button>
             </div>
         </form>

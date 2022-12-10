@@ -10,6 +10,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <x-jet-validation-errors class="mb-4" />
+            @if($agendamento == 1)
+            <a>Você já tem uma visita agendada</a>
+            @endif
             <form method="POST" action="{{ route('agendar-visita-save') }}">
             @csrf
 
@@ -24,7 +27,7 @@
             </div>
             <div class="mt-4">
                 <x-jet-label for="nome" value="{{ __('Nome') }}" />
-                <x-jet-input id="nome" class="block mt-1 w-full" type="nome" name="nome" :value="old('nome')" required />
+                <x-jet-input id="nome" class="block mt-1 w-full" type="text" name="nome" :value="old('nome')" required />
             </div>
 
             <div class="mt-4">

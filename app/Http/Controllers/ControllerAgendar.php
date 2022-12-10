@@ -17,8 +17,9 @@ class ControllerAgendar extends Controller
         $id = Auth::id();
 
         //traz todos os agendamentos
+        $agendamento = 0;
         
-        return view('form.agendar-visita');             
+        return view('form.agendar-visita',['agendamento'=>$agendamento]);             
             
 
     }
@@ -59,7 +60,9 @@ class ControllerAgendar extends Controller
                 //verifica se existe algum agendamento, caso tenha o usuario será 
                 //redirecionado para a view agendar visita
                 //impedindo a gravação de novo agendamento
-                return redirect('/events/agendar-visita');
+
+                $agendamento = 1;
+                return view('form.agendar-visita',['agendamento'=>$agendamento]);
             }
             }
         }
@@ -145,6 +148,11 @@ class ControllerAgendar extends Controller
 
 
         $agendamento = Agendamento::All();
+
+        if($agendamento->isEmpty()){
+            $zeroagend = "Não existe nenhum agendamento!";
+       return view('informacoes.nenhum-agend-adm', ['zeroagend'=>$zeroagend]);
+        }
 
         //retorna a view do administrador para mostrar todos os agendamentos
         return view('informacoes.all-agendamento', ['agendamento'=>$agendamento]);

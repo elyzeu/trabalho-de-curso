@@ -28,10 +28,6 @@
                 <x-jet-input id="data" class="block mt-1 w-full" type="date" name="data" required autocomplete="data" />
             </div>
             <div class="mt-4">
-                <x-jet-label for="ano" value="{{ __('Ano') }}" />
-                <x-jet-input id="ano" class="block mt-1 w-full" type="numeric" name="ano" required autocomplete="ano" />
-            </div>
-            <div class="mt-4">
                 <x-jet-label for="mes" value="{{ __('Mes') }}" />
                 <x-jet-input id="mes" class="block mt-1 w-full" type="numeric" name="mes" required autocomplete="mes" />
             </div>

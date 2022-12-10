@@ -2,7 +2,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Gasto do Mes ') }}{{$mes}}
+            {{ __('Valor Gasto no Mes ') }}{{$mes}}
         </h2>
     
     </x-slot>
@@ -26,9 +26,12 @@
         </br>
         <th>{{$gastovar->data->format('d/m/Y')}} </th>
         <br/>
+        </br>
         </tr>            
         @endif
         @endforeach
+        <label>Total: </label>
+        <label>{{$total}}</label>
 
 
 

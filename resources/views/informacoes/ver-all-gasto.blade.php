@@ -16,6 +16,7 @@
        <label for="valor">Valor</label>
        <br/>
         <th>{{$gastos->valor}} </th>
+        
         <br/>
         <label for="descricao">Descrição</label>
         <br/>
@@ -23,13 +24,15 @@
         <br/>
         <label for="data">Data</label>
         <br/>
-        <th>{{$gastos->data->format('d/m/Y')}} </th>
+        <th>{{date('d-m-Y', strtotime($gastos->data));}} </th>
         <br/>
         </br>
         
 </tr>            
-@endforeach
 
+@endforeach
+<label for="total">Total</label>
+<label>{{$total}}</label>
 
 
             </div>

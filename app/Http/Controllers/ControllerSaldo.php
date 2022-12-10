@@ -22,7 +22,8 @@ class ControllerSaldo extends Controller
         $saldo=Saldo::All();
 
         if($saldo->isEmpty()){
-            return redirect('/dashboard');
+           return view('informacoes.ver-saldo-zero');
+            
         }else{
         foreach($saldo as $saldovar){
             return view('informacoes.ver-saldo', ['saldo' => $saldovar]);

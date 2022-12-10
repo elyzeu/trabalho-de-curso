@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Filiado extends Model
 {
     use HasFactory;
+    
+    
 }

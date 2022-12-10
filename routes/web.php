@@ -112,4 +112,18 @@ Route::middleware([
 ->group(function () {
     Route::post('/events/filiado/save', [ControllerFiliado::class, 'store'])->name('cadastrar-filiado-save');
 })
+->group(function () {
+    Route::get('/events/filiado/all-filiado', [ControllerFiliado::class, 'listAll'])->name('ver-all-filiado-info');
+})
+->group(function () {
+    Route::delete('/events/all-filiado/delet/{id}', [ControllerFiliado::class, 'destroyFiliado'])->name('destroy-Filiado');
+})
+->group(function () {
+Route::get('/events/filiado/busca/form', function () {
+    return view('form.buscar-filiado');
+})->name('buscar-filiado');
+})
+->group(function () {
+    Route::post('/events/filiado/busca', [ControllerFiliado::class, 'busca'])->name('busca-filiado');
+})
 ;
