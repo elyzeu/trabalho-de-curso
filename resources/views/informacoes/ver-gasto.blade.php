@@ -24,7 +24,7 @@
         <br/>
         <label for="data">data</label>
         </br>
-        <th>{{$gastovar->data}} </th>
+        <th>{{$gastovar->data->format('d/m/Y')}} </th>
         <br/>
         </tr>            
         @endif

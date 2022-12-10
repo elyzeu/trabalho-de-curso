@@ -34,7 +34,11 @@
                     </x-jet-nav-link>
                     <br/>
                     <x-jet-nav-link href="{{ route('buscar-gasto') }}" :active="request()->routeIs('buscar-gasto')">
-                        {{ __('Ver Gasto') }}
+                        {{ __('Pesquisar Gasto De Um Mes') }}
+                    </x-jet-nav-link>
+                    <br/>
+                    <x-jet-nav-link href="{{ route('ver-all-gasto') }}" :active="request()->routeIs('ver-all-gasto')">
+                        {{ __('Ver Todos os Gastos') }}
                     </x-jet-nav-link>
                     <br/>
                     <x-jet-nav-link href="{{ route('saldo-cadastro-view') }}" :active="request()->routeIs('saldo-cadastro-view')">

@@ -31,4 +31,9 @@ class ControllerGasto extends Controller
        
     return view('informacoes.ver-gasto', ['gasto' => $gasto, 'mes'=> $mes]);
     }
+    public function ListAllGasto(){
+        $gasto = Gasto::All();
+
+        return view('informacoes.ver-all-gasto', ['gasto'=>$gasto]);
+    }
 }

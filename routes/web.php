@@ -75,6 +75,9 @@ Route::middleware([
 ->group(function () {
     Route::post('/events/ver-gasto', [ControllerGasto::class, 'list'])->name('ver-gasto');
 })
+->group(function () {
+    Route::get('/events/ver-all-gasto', [ControllerGasto::class, 'ListAllGasto'])->name('ver-all-gasto');
+})
 
 //rota para chamada do metodo destroy, para deletar as dividas
 ->group(function () {
