@@ -2,7 +2,7 @@
 <x-app-layout>
     <head>
 <style>
-    .button {
+.button {
   border: solid;
   color: white;
   background-color: black;
