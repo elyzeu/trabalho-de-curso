@@ -17,29 +17,9 @@ class ControllerAgendar extends Controller
         $id = Auth::id();
 
         //traz todos os agendamentos
-        $qtd_agendamento = Agendamento::All();
-
-        if($qtd_agendamento->isEmpty()){
-            return view('form.agendar-visita');
-        }
-        else{
-               //traz as informação para qtds_agend
-        foreach($qtd_agendamento as $qtds_agend){
-           //verifica se o usuario tem uma visita agendada
-           if($qtds_agend->user_id == $id){
-    
-            //retorna a view de visita agendada
-            return redirect('/events/visitas-agendadas');
-
-        }
-        else{
-            //caso ele n tenha agendado, retorna o formulario de agendamento
-            return view('form.agendar-visita');
-        }
-        }  
-                   
-                }
         
+        return view('form.agendar-visita');             
+            
 
     }
 
@@ -139,14 +119,14 @@ class ControllerAgendar extends Controller
        $agendvar = Agendamento::All();
        
        if($agendvar->isEmpty()){
-       return redirect('/events/agendar-visita');
+        $zeroagend = "você não possui agendamento!";
+       return view('informacoes.meu-agendamento-zero', ['zeroagend'=>$zeroagend]);
        }
        else{
         foreach($agendvar as $agend_list){
             //levar informação pra variavel
            }
     
-           //validar se a agend ta vazia??????
            
                 if($agend_list->user_id == $idv){
         
@@ -168,5 +148,13 @@ class ControllerAgendar extends Controller
 
         //retorna a view do administrador para mostrar todos os agendamentos
         return view('informacoes.all-agendamento', ['agendamento'=>$agendamento]);
+    }
+    public function destroyAllVisita($id){
+
+
+             //pega todos os agendamentos        
+             Agendamento::findOrFail($id)->delete();
+        
+           return redirect('/dashboard')->with('msg', 'agendamento excluido com sucesso');
     }
 }

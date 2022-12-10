@@ -20,9 +20,13 @@
             @foreach($agendvar as $agend)
             @if($agend->user_id == $id)
             <tr >
-            
+        
+        <label for="nome">Nome:</label>
         <td>{{$agend->name}} </td>
+        </br>
+        <label for="horario">Horario:</label>
         <td>{{$agend->horario}} </td>
+        </br>
         <td>
             <form  action="{{ route('destroy-visita-user-agendada') }}" method="POST">
             @csrf

@@ -83,6 +83,9 @@ Route::middleware([
 ->group(function () {
     Route::delete('/events/visita/delet', [ControllerAgendar::class, 'destroy'])->name('destroy-visita-user-agendada');
 })
+->group(function () {
+    Route::delete('/events/all-visita/delet/{id}', [ControllerAgendar::class, 'destroyAllVisita'])->name('destroy-all-visita-agendada');
+})
 
 //rota com objetivo de salvar as visitas no banco, por meio do método store
 ->group(function () {
