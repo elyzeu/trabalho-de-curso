@@ -14,7 +14,7 @@ class ControllerSaldo extends Controller
         $saldo = new Saldo;
         foreach($saldocons as $saldonew){
         if($saldonew->id == 1 ){
-        Saldo::table('saldos')->where('id', 1)->update([
+        Saldo::where('id', 1)->update([
     'valor' => $request->valor
     ]);
         }
