@@ -26,6 +26,10 @@
         <br/>
         <th>{{date('d-m-Y', strtotime($gastos->data));}} </th>
         <br/>
+        <label for="mes">Mes</label>
+        <br/>
+        <th>{{$gastos->mes}} </th>
+        <br/>
         </br>
         
 </tr>            

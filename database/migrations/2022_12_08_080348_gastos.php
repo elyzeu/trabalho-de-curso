@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('descricao');
             $table->date('data');
             $table->double('mes');
+            $table->double('ano');
             $table->timestamps();
         });
 

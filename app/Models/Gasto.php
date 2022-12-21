@@ -13,5 +13,5 @@ class Gasto extends Model
         'data'
 
     ];
-    protected $dateFormat = 'm-d-Y';
+    protected $dateFormat = 'Y-m-d';
 }

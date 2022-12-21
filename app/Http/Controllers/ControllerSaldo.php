@@ -9,11 +9,21 @@ class ControllerSaldo extends Controller
 {
     //
     public function store(Request $request){
+        $saldocons = Saldo::All();
+
         $saldo = new Saldo;
+        foreach($saldocons as $saldonew){
+        if($saldonew->id == 1 ){
+        Saldo::table('saldos')->where('id', 1)->update([
+    'valor' => $request->valor
+    ]);
+        }
+        else{
+         $saldo->valor = $request->saldo;
 
-        $saldo->valor = $request->valor;
-
-        $saldo->save();
+         $saldo->save();
+        }
+    }
 
         return redirect('/dashboard');
     }

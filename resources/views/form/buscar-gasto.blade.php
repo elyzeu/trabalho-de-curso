@@ -17,6 +17,10 @@
                 <x-jet-label for="mes" value="{{ __('Mes') }}" />
                 <x-jet-input id="mes" class="block mt-1 w-full" type="text" name="mes" required autocomplete="mes" />
             </div>
+            <div class="mt-4">
+                <x-jet-label for="ano" value="{{ __('Ano') }}" />
+                <x-jet-input id="ano" class="block mt-1 w-full" type="text" name="ano" required autocomplete="ano" />
+            </div>
 
 
             <div class="flex items-center justify-end mt-4">

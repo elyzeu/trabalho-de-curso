@@ -14,10 +14,11 @@ class ControllerGasto extends Controller
 
         $gasto->valor = $request->valor;
         $gasto->descricao = $request->descricao;
-        $gasto->data = $request->data;
         $gasto->mes = $request->mes;
+        $gasto->ano = $request->ano;
+       $gasto->data = $request->data;
 
-        $gasto->save();
+       $gasto->save();
 
         return redirect('/dashboard');
 
@@ -27,16 +28,24 @@ class ControllerGasto extends Controller
 
         $gasto = Gasto::All();
         $mes = $request->mes;
+        $ano = $request->ano;
+
         $total = 0;
         foreach($gasto as $valores){
 
-        if($valores->mes == $mes){
+        if($valores->mes == $mes && $valores->ano == $ano){
+            
             $total = $total + $valores->valor;
+            return view('informacoes.ver-gasto', ['gasto' => $gasto, 'mes'=> $mes, 'total'=>$total]);
+        }
+        else{
+            $erro = "nada encontrado";
+            return view('informacoes.gasto-vazio',['erro' => $erro] );
         }
     }
 
        
-    return view('informacoes.ver-gasto', ['gasto' => $gasto, 'mes'=> $mes, 'total'=>$total]);
+ 
     }
     public function ListAllGasto(){
         $gasto = Gasto::All();
