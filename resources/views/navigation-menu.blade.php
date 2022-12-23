@@ -11,12 +11,35 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-1 sm:-my-px sm:ml-10 sm:flex col-md-1">
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('menu') }}" :active="request()->routeIs('menu')">
-                        {{ __('Menu') }}
+                    <x-jet-nav-link href="{{ route('cadastrar-gasto') }}" :active="request()->routeIs('cadastrar-gasto')">
+                        {{ __('Cadastrar Gasto Adm') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('buscar-gasto') }}" :active="request()->routeIs('buscar-gasto')">
+                        {{ __('Pesquisar Gasto De Um Mes') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('saldo-cadastro-view') }}" :active="request()->routeIs('saldo-cadastro-view')">
+                        {{ __('Cadastrar Saldo') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('subtrair-saldo') }}" :active="request()->routeIs('subtrair-saldo')">
+                        {{ __('Subtrair Saldo') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('cadastrar-filiado') }}" :active="request()->routeIs('cadastrar-filiado')">
+                        {{ __('Cadastrar Filiado') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('buscar-filiado') }}" :active="request()->routeIs('buscar-filiado')">
+                        {{ __('Buscar Filiado') }}
+                    </x-jet-nav-link>
+                    
+                    <x-jet-nav-link href="{{ route('editar-filiado') }}" :active="request()->routeIs('editar-filiado')">
+                        {{ __('Editar Filiado') }}
+                    </x-jet-nav-link>
+                    
+                    <x-jet-nav-link href="{{ route('ver-all-filiado-info') }}" :active="request()->routeIs('ver-all-filiado-info')">
+                        {{ __('Ver Todos os Filiados') }}
                     </x-jet-nav-link>
                     
                 </div>
@@ -97,7 +120,7 @@
                         <x-slot name="content">
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
+                                {{ __('Menu') }}
                             </div>
 
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
@@ -110,7 +133,26 @@
                                 </x-jet-dropdown-link>
                             @endif
 
-                            <div class="border-t border-gray-100"></div>
+                            
+                            <x-jet-dropdown-link href="{{ route('menu') }}" :active="request()->routeIs('menu')">
+                                    {{ __('Menu') }}
+                                </x-jet-dropdown-link>
+                                <x-jet-dropdown-link  href="{{ route('visitas-agendadas') }}" :active="request()->routeIs('visitas-agendadas')">
+                        {{ __('Minha Visita Agendada') }}
+                    </x-jet-dropdown-link>
+                    <x-jet-dropdown-link href="{{ route('agendar-visita-form') }}" :active="request()->routeIs('agendar-visita-form')">
+                        {{ __('Agendar Visita') }}
+                    </x-jet-dropdown-link>
+                    <x-jet-dropdown-link href="{{ route('ver-saldo') }}" :active="request()->routeIs('ver-saldo')">
+                        {{ __('Ver Saldo') }}
+                    </x-jet-dropdown-link>
+                    <x-jet-dropdown-link href="{{ route('ver-all-gasto') }}" :active="request()->routeIs('ver-all-gasto')">
+                        {{ __('Ver Todos os Gastos') }}
+                    </x-jet-dropdown-link>
+                    <x-jet-dropdown-link href="{{ route('all-visitas-agendadas') }}" :active="request()->routeIs('all-visitas-agendadas')">
+                        {{ __('Todas as visitas agendadas Adm') }}
+</x-jet-dropdown-link>
+<div class="border-t border-gray-100"></div>
 
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}" x-data>
@@ -123,6 +165,7 @@
                             </form>
                         </x-slot>
                     </x-jet-dropdown>
+                    
                 </div>
             </div>
 
