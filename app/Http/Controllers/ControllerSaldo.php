@@ -42,4 +42,18 @@ class ControllerSaldo extends Controller
 
         }
     }
+    public function subtrair(Request $request){
+        $saldo = Saldo::All();
+
+        foreach($saldo as $saldos){
+            $valor_subtraido = $saldos->valor - $request->valor;
+            Saldo::where('id', 1)->update([
+            'valor' => $valor_subtraido
+            ]);
+
+            return redirect('/dashboard');
+        }
+
+    }
+    
 }

@@ -36,7 +36,7 @@ class ControllerGasto extends Controller
         if($valores->mes == $mes && $valores->ano == $ano){
             
             $total = $total + $valores->valor;
-            return view('informacoes.ver-gasto', ['gasto' => $gasto, 'mes'=> $mes, 'total'=>$total]);
+            return view('informacoes.ver-gasto', ['gasto' => $gasto, 'mes'=> $mes, 'ano'=>$ano, 'total'=>$total]);
         }
         else{
             $erro = "nada encontrado";
@@ -50,10 +50,34 @@ class ControllerGasto extends Controller
     public function ListAllGasto(){
         $gasto = Gasto::All();
         $total = 0;
+        if($gasto->isEmpty()){
+
+            $erro = "nada encontrado";
+            return view('informacoes.gasto-vazio',['erro' => $erro] );
+        }
+        else{
         foreach($gasto as $valores){
             $total = $total + $valores->valor;
+           
+            
+            return view('informacoes.ver-all-gasto', ['gasto'=>$gasto , 'total'=>$total]);
+            }
         }
+    
 
-        return view('informacoes.ver-all-gasto', ['gasto'=>$gasto , 'total'=>$total]);
+    }
+    public function destroyGasto($id){
+
+
+        //pega todos os agendamentos        
+        Gasto::findOrFail($id)->delete();
+   
+      return redirect('/dashboard')->with('msg', 'agendamento excluido com sucesso');
+    }
+    public function destroyGastoBusca($id){
+
+        Gasto::findOrFail($id)->delete();
+
+        return redirect('/dashboard');
     }
 }

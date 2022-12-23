@@ -45,8 +45,8 @@
                         {{ __('Cadastrar Saldo') }}
                     </x-jet-nav-link>
                     <br/>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Saldo Subtrair') }}
+                    <x-jet-nav-link href="{{ route('subtrair-saldo') }}" :active="request()->routeIs('subtrair-saldo')">
+                        {{ __('Subtrair Saldo') }}
                     </x-jet-nav-link>
                     <br/>
                     <x-jet-nav-link href="{{ route('ver-saldo') }}" :active="request()->routeIs('ver-saldo')">
@@ -57,12 +57,12 @@
                         {{ __('Cadastrar Filiado') }}
                     </x-jet-nav-link>
                     <br/>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Excluir Filiado') }}
-                    </x-jet-nav-link>
-                    <br/>
                     <x-jet-nav-link href="{{ route('buscar-filiado') }}" :active="request()->routeIs('buscar-filiado')">
                         {{ __('Buscar Filiado') }}
+                    </x-jet-nav-link>
+                    <br/>
+                    <x-jet-nav-link href="{{ route('editar-filiado') }}" :active="request()->routeIs('editar-filiado')">
+                        {{ __('Editar Filiado') }}
                     </x-jet-nav-link>
                     <br/>
                     <x-jet-nav-link href="{{ route('ver-all-filiado-info') }}" :active="request()->routeIs('ver-all-filiado-info')">

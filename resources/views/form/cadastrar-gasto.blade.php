@@ -1,4 +1,31 @@
+<script>
+function mascara_mes(i){
+   
+   var v = i.value;
+   
+   if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
+      i.value = v.substring(0, v.length-1);
+      return;
+   }
+   
+   i.setAttribute("maxlength", "2");
+   if (v.length == 2);
 
+}
+function mascara_ano(i){
+   
+   var v = i.value;
+   
+   if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
+      i.value = v.substring(0, v.length-1);
+      return;
+   }
+   
+   i.setAttribute("maxlength", "4");
+   if (v.length == 4);
+
+}
+</script>
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -16,7 +43,7 @@
 
             <div class="mt-4">
                 <x-jet-label for="valor" value="{{ __('Valor') }}" />
-                <x-jet-input id="valor" class="block mt-1 w-full" type="numeric" name="valor" :value="old('valor')" required />
+                <x-jet-input id="valor" class="block mt-1 w-full" type="number" name="valor" :value="old('valor')" required />
             </div>
 
             <div class="mt-4">
@@ -29,17 +56,17 @@
             </div>
             <div class="mt-4">
                 <x-jet-label for="mes" value="{{ __('Mes') }}" />
-                <x-jet-input id="mes" class="block mt-1 w-full" type="numeric" name="mes" required autocomplete="mes" />
+                <x-jet-input id="mes" oninput="mascara_mes(this)" class="block mt-1 w-full" type="numeric" name="mes" required autocomplete="mes" />
             </div>
             <div class="mt-4">
                 <x-jet-label for="ano" value="{{ __('Ano') }}" />
-                <x-jet-input id="ano" class="block mt-1 w-full" type="numeric" name="ano" required autocomplete="ano" />
+                <x-jet-input id="ano" oninput="mascara_ano(this)" class="block mt-1 w-full" type="numeric" name="ano" required autocomplete="ano" />
             </div>
 
             <div class="flex items-center justify-end mt-4">
 
                 <x-jet-button class="ml-4">
-                    {{ __('Send') }}
+                    {{ __('Salvar') }}
                 </x-jet-button>
             </div>
         </form>

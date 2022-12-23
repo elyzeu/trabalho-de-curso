@@ -78,6 +78,13 @@ Route::middleware([
 ->group(function () {
     Route::get('/events/ver-all-gasto', [ControllerGasto::class, 'ListAllGasto'])->name('ver-all-gasto');
 })
+->group(function () {
+    Route::delete('/events/all-gasto-delet/delet/{id}', [ControllerGasto::class, 'destroyGasto'])->name('destroy-gasto');
+})
+->group(function () {
+    Route::delete('/events/busca-gasto-delet/delet/{id}', [ControllerGasto::class, 'destroyGastoBusca'])->name('destroy-gasto-busca');
+})
+
 
 //rota para chamada do metodo destroy, para deletar as dividas
 ->group(function () {
@@ -105,6 +112,14 @@ Route::middleware([
     Route::get('/events/saldo/list', [ControllerSaldo::class, 'list'])->name('ver-saldo');
 })
 ->group(function () {
+    Route::get('/events/saldo/subtrair/form', function () {
+        return view('form.subtrair-saldo');
+    })->name('subtrair-saldo');
+    })
+->group(function () {
+Route::post('/events/saldo/subtrair', [ControllerSaldo::class, 'subtrair'])->name('subtrair-saldo-class');
+})
+->group(function () {
     Route::get('/events/filiado', function () {
         return view('form.cadastrar-filiado');
     })->name('cadastrar-filiado');
@@ -125,5 +140,13 @@ Route::get('/events/filiado/busca/form', function () {
 })
 ->group(function () {
     Route::post('/events/filiado/busca', [ControllerFiliado::class, 'busca'])->name('busca-filiado');
+})
+->group(function () {
+    Route::get('/events/filiado/edit/form', function () {
+        return view('form.editar-filiado');
+    })->name('editar-filiado');
+    })
+->group(function () {
+Route::post('/events/filiado/editado', [ControllerFiliado::class, 'edit'])->name('edit-class-filiado');
 })
 ;

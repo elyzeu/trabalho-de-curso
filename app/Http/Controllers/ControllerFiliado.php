@@ -24,6 +24,7 @@ class ControllerFiliado extends Controller
         $filiado->decreto_de_nomeacao= $request->decreto_de_nomeacao;
         $filiado->matricula= $request->matricula;
         $filiado->email= $request->email;
+        $filiado->cpf= $request->cpf;
         $filiado->status = $request->status;
         
 
@@ -70,11 +71,32 @@ class ControllerFiliado extends Controller
             }
         }
     }
-           
-     
-            
         
+    }
+    public function edit(Request $request){
 
-        
+        $filiado = Filiado::All();
+
+        foreach($filiado as $filiados){
+            if($filiados->cpf == $request->cpf_para_alterar){
+                Filiado::where('cpf', $request->cpf_para_alterar)->update([
+                    'nome' => $request->nome,
+                    'cpf'=>$request->cpf,
+                    'data_nascimento'=>$request->data_nascimento,
+                    'admissao'=>$request->admissao,
+                    'cargo'=>$request->cargo,
+                    'lotacao'=>$request->lotacao,
+                    'rg'=>$request->rg,
+                    'decreto_de_nomeacao'=>$request->decreto_de_nomeacao,
+                    'matricula'=>$request->matricula,
+                    'email'=>$request->email,
+                    'status'=>$request->status
+                ]);
+                return redirect('/dashboard');
+            }else{
+                $filiados->save();
+            }
+        }
+
     }
 }

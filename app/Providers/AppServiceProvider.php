@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Utils;
+use App\Models\Filiado;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,5 +26,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        
     }
 }
