@@ -134,9 +134,7 @@
                             @endif
 
                             
-                            <x-jet-dropdown-link href="{{ route('menu') }}" :active="request()->routeIs('menu')">
-                                    {{ __('Menu') }}
-                                </x-jet-dropdown-link>
+                       
                                 <x-jet-dropdown-link  href="{{ route('visitas-agendadas') }}" :active="request()->routeIs('visitas-agendadas')">
                         {{ __('Minha Visita Agendada') }}
                     </x-jet-dropdown-link>
