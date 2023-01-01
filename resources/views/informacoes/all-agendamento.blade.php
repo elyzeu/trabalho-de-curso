@@ -14,7 +14,7 @@
 
             <tr>
         <label for="nome">Nome:</label>
-        <th>{{$agend->nome}} </th>
+        <th>{{$agend->name}} </th>
         <br/>
         <label for="horario">horario:</label>
         <th>{{$agend->horario}} </th>
