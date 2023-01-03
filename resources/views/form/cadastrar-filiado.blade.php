@@ -14,7 +14,22 @@ function mascara(i){
    if (v.length == 11) i.value += "-";
 
 }
+function mascarad(i){
+   
+   var v = i.value;
+   
+   if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
+      i.value = v.substring(0, v.length-1);
+      return;
+   }
+   
+   i.setAttribute("maxlength", "8");
+   if (v.length == 3) i.value += "/";
+
+}
+
  </script>
+ 
 
 <x-app-layout>
     <x-slot name="header">
@@ -66,7 +81,7 @@ function mascara(i){
             </div>
             <div class="mt-4">
                 <x-jet-label for="decreto_de_nomeacao" value="{{ __('Decreto de Nomeacao') }}" />
-                <x-jet-input id="decreto_de_nomeacao" class="block mt-1 w-full" type="number"  name="decreto_de_nomeacao" required autocomplete="decreto_de_nomeacao" />
+                <x-jet-input id="decreto_de_nomeacao" oninput="mascarad(this)" class="block mt-1 w-full" type="text"  name="decreto_de_nomeacao" required autocomplete="decreto_de_nomeacao" />
             </div>
             <div class="mt-4">
                 <x-jet-label for="matricula" value="{{ __('Matricula') }}" />
