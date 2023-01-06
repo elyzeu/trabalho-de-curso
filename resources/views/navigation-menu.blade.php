@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-orange-700">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -12,33 +12,33 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-1 sm:-my-px sm:ml-10 sm:flex col-md-1">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link class="text-white" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('cadastrar-gasto') }}" :active="request()->routeIs('cadastrar-gasto')">
+                    <x-jet-nav-link class="text-white" href="{{ route('cadastrar-gasto') }}" :active="request()->routeIs('cadastrar-gasto')">
                         {{ __('Cadastrar Gasto Adm') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('buscar-gasto') }}" :active="request()->routeIs('buscar-gasto')">
+                    <x-jet-nav-link class="text-white" href="{{ route('buscar-gasto') }}" :active="request()->routeIs('buscar-gasto')">
                         {{ __('Pesquisar Gasto De Um Mes') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('saldo-cadastro-view') }}" :active="request()->routeIs('saldo-cadastro-view')">
+                    <x-jet-nav-link class="text-white" href="{{ route('saldo-cadastro-view') }}" :active="request()->routeIs('saldo-cadastro-view')">
                         {{ __('Cadastrar Saldo') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('subtrair-saldo') }}" :active="request()->routeIs('subtrair-saldo')">
+                    <x-jet-nav-link class="text-white" href="{{ route('subtrair-saldo') }}" :active="request()->routeIs('subtrair-saldo')">
                         {{ __('Subtrair Saldo') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('cadastrar-filiado') }}" :active="request()->routeIs('cadastrar-filiado')">
+                    <x-jet-nav-link class="text-white" href="{{ route('cadastrar-filiado') }}" :active="request()->routeIs('cadastrar-filiado')">
                         {{ __('Cadastrar Filiado') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('buscar-filiado') }}" :active="request()->routeIs('buscar-filiado')">
+                    <x-jet-nav-link class="text-white" href="{{ route('buscar-filiado') }}" :active="request()->routeIs('buscar-filiado')">
                         {{ __('Buscar Filiado') }}
                     </x-jet-nav-link>
                     
-                    <x-jet-nav-link href="{{ route('editar-filiado') }}" :active="request()->routeIs('editar-filiado')">
+                    <x-jet-nav-link class="text-white" href="{{ route('editar-filiado') }}" :active="request()->routeIs('editar-filiado')">
                         {{ __('Editar Filiado') }}
                     </x-jet-nav-link>
                     
-                    <x-jet-nav-link href="{{ route('ver-all-filiado-info') }}" :active="request()->routeIs('ver-all-filiado-info')">
+                    <x-jet-nav-link class="text-white" href="{{ route('ver-all-filiado-info') }}" :active="request()->routeIs('ver-all-filiado-info')">
                         {{ __('Ver Todos os Filiados') }}
                     </x-jet-nav-link>
                     

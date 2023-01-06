@@ -1,51 +1,87 @@
 
 <x-app-layout>
+    <head>
+        <style>
+           table {
+    border-collapse: separate;
+    border-spacing: 5px;
+  
+
+} 
+.bg{
+    background-color: rgb(196, 252, 237);
+}
+
+th,td {
+    padding: 8px;
+  text-decoration-color: black;
+  animation-direction: alternate-reverse;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  text-align: left;
+}
+tr{
+    border-bottom: 1px solid black;
+}
+tr:hover {background-color: #D6EEEE;}
+
+table.a {
+  table-layout: auto;
+  width: 100%;  
+  border: 2px solid black;
+  position: relative;
+  animation: mymove 5s;
+}
+@keyframes mymove {
+  0%   {top: 200px; background: black; width: 100%;}
+  100% {top: 0px; background: white; width: 100%;}
+}
+</style>
+</head>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-white leading-tight">
             {{ __('Todos os Filiados') }}
         </h2>
     </x-slot>
-
+<body>
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="bg-gray-200">
             <x-jet-validation-errors class="mb-4" />
-            @foreach($filiados as $filiado)
 
-            <tr>
-        <label for="nome">Nome:</label>
-        <th>{{$filiado->nome}}</th>
-        <br/>
-        <label for="cpf">Cpf: </label>
-        <th>{{$filiado->cpf}}</th>
-        <br/>
-        <label for="data_nascimento">Data de Nascimento: </label>
-        <th>{{date('d-m-Y', strtotime($filiado->data_nascimento));}}</th>
-        <br/>
-        <label for="admissao">Data de Admissão:</label>
-        <th>{{date('d-m-Y', strtotime($filiado->admissao))}}</th>
-        <br/>
-        <label for="cargo">Cargo:</label>
-        <th>{{$filiado->cargo}}</th>
-        <br/>
-        <label for="lotacao">Lotação:</label>
-        <th>{{$filiado->lotacao}}</th>
-        <br/>
-        <label for="rg">Rg:</label>
-        <th>{{$filiado->rg}}</th>
-        <br/>
-        <label for="decreto_de_nomeacao">Decreto de Nomeação:</label>
-        <th>{{$filiado->decreto_de_nomeacao}}</th>
-        <br/>
-        <label for="matricula">Matricula:</label>
-        <th>{{$filiado->matricula}}</th>
-        <br/>
-        <label for="email">Email:</label>
-        <th>{{$filiado->email}}</th>
-        <br/>
-        <label for="status">Status: </label>
-        <th>{{$filiado->status}}</th>
-        <td>
+  @foreach($filiados as $filiado)
+
+  <div style="overflow-x:auto;">     
+ <table class="a">
+ 
+<tr>
+    
+    <th for="nome">Nome</th>
+    <th for="cpf">Cpf</th>
+    <th for="data_nascimento">Data de Nascimento</th>
+    <th for="admissao">Data de Admissão</th>
+    <th for="cargo">Cargo</th>
+    <th for="lotacao">Lotacao</th>
+    <th for="rg">Rg</th>
+    <th for="decreto_de_nomeacao">Decreto de Nomeação</th>
+    <th for="matricula">Matricula</th>
+    <th for="email">Email</th>
+    <th for="status">Status</th>
+    <th for="excluir">Excluir</th>
+</tr>
+  <tr>
+    
+    <td>{{$filiado->nome}}</td>
+    <td>{{$filiado->cpf}}</td>
+    <td>{{date('d-m-Y', strtotime($filiado->data_nascimento))}}</td>
+    <td>{{date('d-m-Y', strtotime($filiado->admissao))}}</td>
+    <td>{{$filiado->cargo}}</td>
+    <td>{{$filiado->lotacao}}</td>
+    <td>{{$filiado->rg}}</td>
+    <td>{{$filiado->decreto_de_nomeacao}}</td>
+    <td>{{$filiado->matricula}}</td>
+    <td>{{$filiado->email}}</td>
+    <td>{{$filiado->status}}</td>
+    <td>
             <form  action="/events/all-filiado/delet/{{ $filiado->id }}" method="POST">
             @csrf
             @method('DELETE')
@@ -55,15 +91,19 @@
   <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
 </svg></button>
 </form>
+</td>
 
-        </td>
-</tr>
-</br>            
+  
+</table>
+</div>
+        
+     
 @endforeach
 
 
 
-            </div>
+           
         </div>
     </div>
+
 </x-app-layout>
