@@ -1,4 +1,4 @@
-
+<head>
 <script>
 function mascara(i){
    
@@ -29,6 +29,7 @@ function mascarad(i){
 }
 
  </script>
+ </head>
  
 
 <x-app-layout>
