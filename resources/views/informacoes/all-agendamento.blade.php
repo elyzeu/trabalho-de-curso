@@ -1,5 +1,38 @@
 
 <x-app-layout>
+<style>
+           table {
+    border-collapse: separate;
+    border-spacing: 5px;
+  
+
+} 
+.bg{
+    background-color: rgb(196, 252, 237);
+}
+
+th,td {
+    padding: 8px;
+  text-decoration-color: black;
+  animation-direction: alternate-reverse;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  text-align: left;
+}
+tr{
+    border-bottom: 1px solid black;
+}
+tr:hover {background-color: #D6EEEE;}
+
+table.a {
+  table-layout: auto;
+  width: 100%;  
+  border: 2px solid black;
+  position: relative;
+  
+}
+
+</style>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-white leading-tight">
             {{ __('Todos os Agendamentos') }}
@@ -11,14 +44,17 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <x-jet-validation-errors class="mb-4" />
             @foreach($agendamento as $agend)
+            <div style="overflow-x:auto;">  
 
+            <table class="a">
             <tr>
-        <label for="nome">Nome:</label>
-        <th>{{$agend->name}} </th>
-        <br/>
-        <label for="horario">horario:</label>
-        <th>{{$agend->horario}} </th>
-        <br/>
+        <th>Nome</th>
+        <th>Horario</th>
+        <th>Excluir</th>
+        </tr>
+        <tr>
+        <td>{{$agend->name}} </td>
+        <td>{{$agend->horario}} </td>
         <td>
             <form  action="/events/all-visita/delet/{{ $agend->id }}" method="POST">
             @csrf
@@ -29,10 +65,11 @@
   <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
 </svg></button>
 </form>
-
         </td>
-</tr>            
+</tr>      
+</div>      
 @endforeach
+</table>
 
 
 

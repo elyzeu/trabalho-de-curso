@@ -11,7 +11,7 @@
             <div class="bg-stone-700 overflow-hidden shadow-xl sm:rounded-lg">
             <x-jet-validation-errors class="mb-4" />
             @if($agendamento == 1)
-            <a>Você já tem uma visita agendada</a>
+            <a class="text-white">Você já tem uma visita agendada</a>
             @endif
             <form method="POST" action="{{ route('agendar-visita-save') }}">
             @csrf

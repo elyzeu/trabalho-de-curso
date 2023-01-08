@@ -1,5 +1,44 @@
 
 <x-app-layout>
+<style>
+           table {
+    border-collapse: separate;
+    border-spacing: 5px;
+  
+
+} 
+.bg{
+    background-color: rgb(196, 252, 237);
+}
+
+th,td {
+    padding: 8px;
+  text-decoration-color: black;
+  animation-direction: alternate-reverse;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  text-align: left;
+}
+tr{
+    border-bottom: 1px solid black;
+}
+tr:hover {background-color: #D6EEEE;}
+
+table.a {
+  table-layout: auto;
+  width: 100%;  
+  border: 2px solid black;
+  position: relative;
+  
+}
+table.b {
+  table-layout: auto;
+  width: 100%;  
+  border: 2px solid black;
+  position: relative;
+}
+
+</style>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-white leading-tight">
             {{ __('Valor Gasto no Mes ') }}{{$mes}}{{__(' Ano ')}}{{$ano}}
@@ -13,19 +52,18 @@
             <x-jet-validation-errors class="mb-4" />
         @foreach($gasto as $gastovar)
         @if($gastovar->mes == $mes)
+        <table class="a">
         <tr>
-        <label for="valor">Valor</label>
-        <br/>        
-        <th>{{$gastovar->valor}} </th>
-        <br/>
-        <label for="descricao">descricao</label>
-        <br/>
-        <th>{{$gastovar->descricao}} </th>
-        <br/>
-        <label for="data">data</label>
-        </br>
-        <th>{{$gastovar->data->format('d/m/Y')}} </th>
-        <br/>
+        <th for="valor">Valor</th>
+        <th for="descricao">descricao</th>
+        <th for="data">data</th>
+</tr>
+<tr>
+        <td>{{$gastovar->valor}} </td>
+        <td>{{$gastovar->descricao}} </td>
+    
+        <td>{{$gastovar->data->format('d/m/Y')}} </td>
+       <td> 
         <form  action="/events/busca-gasto-delet/delet/{{ $gastovar->id }}" method="POST">
             @csrf
             @method('DELETE')
@@ -34,15 +72,19 @@
   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
   <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
 </svg></button>
-</form>
-</br>
-        </br>
-        </tr>            
+</td>
+</form>         
         @endif
         @endforeach
-        <label>Total: </label>
-        <label>{{$total}}</label>
-
+</table>
+<table class="b">
+    <tr>
+        <th class="text-center">Total</th>
+</tr>
+<tr>
+        <td class="text-center">{{$total}}</td>
+</tr>
+</table>
 
 
             </div>

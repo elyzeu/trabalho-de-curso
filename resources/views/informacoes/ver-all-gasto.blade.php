@@ -1,5 +1,46 @@
 
 <x-app-layout>
+
+  <style>
+           table {
+    border-collapse: separate;
+    border-spacing: 5px;
+  
+
+} 
+.bg{
+    background-color: rgb(196, 252, 237);
+}
+
+th,td {
+    padding: 8px;
+  text-decoration-color: black;
+  animation-direction: alternate-reverse;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  text-align: left;
+}
+tr{
+    border-bottom: 1px solid black;
+}
+tr:hover {background-color: #D6EEEE;}
+
+table.a {
+  table-layout: auto;
+  width: 100%;  
+  border: 2px solid black;
+  position: relative;
+  
+}
+table.b {
+  table-layout: auto;
+  width: 100%;  
+  border: 2px solid black;
+  position: relative;
+  
+}
+
+</style>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-white leading-tight">
             {{ __('Todos os Gastos') }}
@@ -10,27 +51,22 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <x-jet-validation-errors class="mb-4" />
+            
             @foreach($gasto as $gastos)
-
+            <div style="overflow-x:auto;">  
+            <table class="a">
             <tr>
-       <label for="valor">Valor</label>
-       <br/>
-        <th>{{$gastos->valor}} </th>
-        
-        <br/>
-        <label for="descricao">Descrição</label>
-        <br/>
-        <th>{{$gastos->descricao}} </th>
-        <br/>
-        <label for="data">Data</label>
-        <br/>
-        <th>{{date('d-m-Y', strtotime($gastos->data));}} </th>
-        <br/>
-        <label for="mes">Mes</label>
-        <br/>
-        <th>{{$gastos->mes}} </th>
-        <br/>
-        <td>
+                <th>Valor</th>
+                <th>Descrição</th>
+                <th>Data</th>
+                <th>Mes</th>
+            </tr>
+            <tr>
+            <td>{{$gastos->valor}} </td>
+            <td>{{$gastos->descricao}} </td>
+            <td>{{date('d-m-Y', strtotime($gastos->data));}} </td>
+            <td>{{$gastos->mes}} </td>
+            <td>
             <form  action="/events/all-gasto-delet/delet/{{ $gastos->id }}" method="POST">
             @csrf
             @method('DELETE')
@@ -40,17 +76,21 @@
   <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
 </svg></button>
 </form>
-</br>
-
         </td>
         
-</tr>            
 
+</table>
 @endforeach
-<label for="total">Total</label>
-<label>{{$total}}</label>
+<table class="b">
+<tr>
+    <th class="text-center">Total</th>
+</tr>
+<tr>
+<td class="text-center">{{$total}}</td>
+</tr>
+</table>
 
-
+</div>         
             </div>
         </div>
     </div>
