@@ -27,9 +27,21 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'cidade_id',
+        'telefone_celular',
+        'telefone_recado',
+        'nome_rua',
+        'complemento',
+        'bairro',
+        'numero',
         
     ];
+    protected $regras = [
+        'data'
 
+    ];     
+
+    protected $dateFormat = 'Y-m-d';
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -40,6 +52,8 @@ class User extends Authenticatable
         'remember_token',
         'two_factor_recovery_codes',
         'two_factor_secret',
+        'cidade_id',
+
     ];
 
     /**

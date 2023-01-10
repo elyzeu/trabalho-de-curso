@@ -22,6 +22,7 @@ class CreateNewUser implements CreatesNewUsers
     {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
+            'cidade_id',
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
@@ -31,6 +32,14 @@ class CreateNewUser implements CreatesNewUsers
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
+            'telefone_celular' => $input['telefone_celular'],
+            'telefone_recado' => $input['telefone_recado'],
+            'data_nascimento' => $input['data_nascimento'],
+            'nome_rua' => $input['nome_rua'],
+            'complemento' => $input['complemento'],
+            'bairro' => $input['bairro'],
+            'numero' => $input['numero'],
+            'cidade_id' =>$input['cidade_id'],
         ]);
     }
 }

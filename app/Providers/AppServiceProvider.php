@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Utils;
 use App\Models\Filiado;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Fortify\Fortify;
+use App\Models\Cidade;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,7 +27,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Fortify::registerView(function () {
+            $cidade=Cidade::All();
+
+            return view('auth.register',['cidade'=>$cidade]);     
+        });
         
     }
 }

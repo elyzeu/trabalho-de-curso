@@ -96,6 +96,16 @@ function mascara_data(i){
                 <x-jet-label for="numero" class="text-white" value="{{ __('Numero') }}" />
                 <x-jet-input id="numero"  placeholder="numero"  class="block mt-1 w-full" type="text" name="numero" required autocomplete="numero" />
             </div>
+            
+            <div class="mt-4">
+            <x-jet-label for="nome_cidade" class="text-white" value="{{ __('Nome da Cidade') }}" />
+              <select name="cidade_id">
+              @foreach($cidade as $cidades)
+               <option value=" {{ $cidades->id }} " >{{$cidades->nome}}</option>
+               @endforeach
+</select>
+            </div>
+           
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">
