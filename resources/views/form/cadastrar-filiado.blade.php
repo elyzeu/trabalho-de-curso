@@ -27,6 +27,20 @@ function mascarad(i){
    if (v.length == 3) i.value += "/";
 
 }
+function mascara_nascimento(i){
+   
+   var v = i.value;
+   
+   if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
+      i.value = v.substring(0, v.length-1);
+      return;
+   }
+   
+   i.setAttribute("maxlength", "10");
+   if (v.length == 2) i.value += "/";
+   if (v.length == 5) i.value += "/";
+
+}
 
  </script>
  </head>
@@ -49,48 +63,46 @@ function mascarad(i){
 
             <div class="mt-4">
                 <x-jet-label for="nome" class="text-white" value="{{ __('Nome') }}" />
-                <x-jet-input id="nome"  class="block mt-1 w-full" type="text" name="nome"  required autocomplete="nome" />
+                <x-jet-input id="nome" placeholder="nome" class="block mt-1 w-full" type="text" name="nome"  required autocomplete="nome" />
             </div>
-            <?php
-            
-            ?>
+        
             <div class="mt-4">
                 <x-jet-label for="cpf" class="text-white" value="{{ __('Cpf Pessoal') }}" />
-                <x-jet-input id="cpf" oninput="mascara(this)" class="block mt-1 w-full" type="text" name="cpf"  required autocomplete="cpf" />
+                <x-jet-input id="cpf" placeholder="cpf" oninput="mascara(this)" class="block mt-1 w-full" type="text" name="cpf"  required autocomplete="cpf" />
             </div>
 
         
             <div class="mt-4">
                 <x-jet-label for="data_nascimento" class="text-white" value="{{ __('Data de Nascimento') }}" />
-                <x-jet-input id="data_nascimento" class="block mt-1 w-full" type="date" name="data_nascimento" required autocomplete="data_nascimento" />
+                <x-jet-input id="data_nascimento" placeholder="__/__/__" oninput="mascara_nascimento(this)" class="block mt-1 w-full" type="text" name="data_nascimento" required autocomplete="data_nascimento" />
             </div>
             <div class="mt-4">
                 <x-jet-label for="admissao" class="text-white" value="{{ __('Data de Admissao') }}" />
-                <x-jet-input id="admissao" class="block mt-1 w-full" type="date" name="admissao" required autocomplete="admissao" />
+                <x-jet-input id="admissao" class="block mt-1 w-full" placeholder="__/__/__" oninput="mascara_nascimento(this)" type="text" name="admissao" required autocomplete="admissao" />
             </div>
             <div class="mt-4">
                 <x-jet-label for="cargo" class="text-white" value="{{ __('Cargo') }}" />
-                <x-jet-input id="cargo" class="block mt-1 w-full" type="text" name="cargo" required autocomplete="cargo" />
+                <x-jet-input id="cargo" placeholder="cargo" class="block mt-1 w-full" type="text" name="cargo" required autocomplete="cargo" />
             </div>
             <div class="mt-4">
                 <x-jet-label for="lotacao" class="text-white" value="{{ __('Lotacao') }}" />
-                <x-jet-input id="lotacao" class="block mt-1 w-full" type="text" name="lotacao" required autocomplete="lotacao" />
+                <x-jet-input id="lotacao" placeholder="lotação" class="block mt-1 w-full" type="text" name="lotacao" required autocomplete="lotacao" />
             </div>
             <div class="mt-4">
                 <x-jet-label for="rg" class="text-white" value="{{ __('Rg') }}" />
-                <x-jet-input id="rg" class="block mt-1 w-full" type="text" name="rg" required autocomplete="rg" />
+                <x-jet-input id="rg" placeholder="rg" class="block mt-1 w-full" type="text" name="rg" required autocomplete="rg" />
             </div>
             <div class="mt-4">
                 <x-jet-label for="decreto_de_nomeacao" class="text-white" value="{{ __('Decreto de Nomeacao') }}" />
-                <x-jet-input id="decreto_de_nomeacao" oninput="mascarad(this)" class="block mt-1 w-full" type="text"  name="decreto_de_nomeacao" required autocomplete="decreto_de_nomeacao" />
+                <x-jet-input id="decreto_de_nomeacao" placeholder="000/0000" oninput="mascarad(this)" class="block mt-1 w-full" type="text"  name="decreto_de_nomeacao" required autocomplete="decreto_de_nomeacao" />
             </div>
             <div class="mt-4">
                 <x-jet-label for="matricula" class="text-white" value="{{ __('Matricula') }}" />
-                <x-jet-input id="matricula" class="block mt-1 w-full" type="number" name="matricula" required autocomplete="matricula" />
+                <x-jet-input id="matricula" placeholder="numero de matricula" class="block mt-1 w-full" type="number" name="matricula" required autocomplete="matricula" />
             </div>
             <div class="mt-4">
                 <x-jet-label for="email" class="text-white" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" required autocomplete="email" />
+                <x-jet-input id="email" placeholder="email@gmail.com" class="block mt-1 w-full" type="email" name="email" required autocomplete="email" />
             </div>
  
             <div class="mt-4">

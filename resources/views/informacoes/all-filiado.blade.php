@@ -80,12 +80,11 @@ table.a {
     <td>{{$filiado->decreto_de_nomeacao}}</td>
     <td>{{$filiado->matricula}}</td>
     <td>{{$filiado->email}}</td>
-    @if($fliado->status == 1)
+    @if($filiado->status == 1)
     <td>Contribuinte</td>
-    @endif
     @else
     <td>Não Contribuinte</td>
-    @endelse
+    @endif
     <td>
             <form  action="/events/all-filiado/delet/{{ $filiado->id }}" method="POST">
             @csrf
