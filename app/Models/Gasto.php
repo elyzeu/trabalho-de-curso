@@ -9,9 +9,5 @@ class Gasto extends Model
 {
     use HasFactory;
 
-    protected $dates = [
-        'data'
-
-    ];
-    protected $dateFormat = 'Y-m-d';
+    
 }

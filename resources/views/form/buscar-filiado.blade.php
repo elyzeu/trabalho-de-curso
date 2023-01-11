@@ -15,7 +15,7 @@
 
             <div class="mt-4">
                 <x-jet-label for="email" class="text-white" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" required autocomplete="email" />
+                <x-jet-input id="email" placeholder="email@gmail.com" class="block mt-1 w-full" type="email" name="email" required autocomplete="email" />
             </div>
 
 

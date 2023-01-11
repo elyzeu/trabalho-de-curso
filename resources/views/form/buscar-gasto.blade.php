@@ -42,11 +42,11 @@ function mascara_ano(i){
 
             <div class="mt-4">
                 <x-jet-label for="mes" class="text-white" value="{{ __('Mes') }}" />
-                <x-jet-input id="mes" oninput="mascara_mes(this)" class="block mt-1 w-full" type="text" name="mes" required autocomplete="mes" />
+                <x-jet-input id="mes" placeholder="mes"  oninput="mascara_mes(this)" class="block mt-1 w-full" type="text" name="mes" required autocomplete="mes" />
             </div>
             <div class="mt-4">
                 <x-jet-label for="ano" class="text-white" value="{{ __('Ano') }}" />
-                <x-jet-input id="ano" oninput="mascara_ano(this)" class="block mt-1 w-full" type="text" name="ano" required autocomplete="ano" />
+                <x-jet-input id="ano" placeholder="ano" oninput="mascara_ano(this)" class="block mt-1 w-full" type="text" name="ano" required autocomplete="ano" />
             </div>
 
 

@@ -62,7 +62,7 @@ table.b {
         <td>{{$gastovar->valor}} </td>
         <td>{{$gastovar->descricao}} </td>
     
-        <td>{{$gastovar->data->format('d/m/Y')}} </td>
+        <td>{{$gastovar->data}} </td>
        <td> 
         <form  action="/events/busca-gasto-delet/delet/{{ $gastovar->id }}" method="POST">
             @csrf
@@ -75,6 +75,8 @@ table.b {
 </td>
 </form>         
         @endif
+        @php($total = $total + $gastovar->valor)
+        
         @endforeach
 </table>
 <table class="b">

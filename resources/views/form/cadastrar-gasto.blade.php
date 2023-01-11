@@ -25,6 +25,20 @@ function mascara_ano(i){
    if (v.length == 4);
 
 }
+function mascara_data(i){
+   
+   var v = i.value;
+   
+   if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
+      i.value = v.substring(0, v.length-1);
+      return;
+   }
+   
+   i.setAttribute("maxlength", "10");
+   if (v.length == 2) i.value += "/";
+   if (v.length == 5) i.value += "/";
+
+}
 </script>
 <x-app-layout>
     <x-slot name="header">
@@ -43,24 +57,24 @@ function mascara_ano(i){
 
             <div class="mt-4">
                 <x-jet-label for="valor" class="text-white" value="{{ __('Valor') }}" />
-                <x-jet-input id="valor" class="block mt-1 w-full" type="number" name="valor" :value="old('valor')" required />
+                <x-jet-input id="valor" placeholder="valor" class="block mt-1 w-full" type="number" name="valor" :value="old('valor')" required />
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="descricao" class="text-white" value="{{ __('Descricao') }}" />
-                <x-jet-input id="descricao" class="block mt-1 w-full" type="text" name="descricao" required autocomplete="descricao" />
+                <x-jet-label for="descricao" class="text-white" value="{{ __('Descrição') }}" />
+                <x-jet-input id="descricao" placeholder="descrição" class="block mt-1 w-full" type="text" name="descricao" required autocomplete="descricao" />
             </div>
             <div class="mt-4">
                 <x-jet-label for="data" class="text-white" value="{{ __('Data') }}" />
-                <x-jet-input id="data" class="block mt-1 w-full" type="date" name="data" required autocomplete="data" />
+                <x-jet-input id="data" placeholder="__/__/____" oninput="mascara_data(this)" class="block mt-1 w-full" type="text" name="data" required autocomplete="data" />
             </div>
             <div class="mt-4">
                 <x-jet-label for="mes" class="text-white" value="{{ __('Mes') }}" />
-                <x-jet-input id="mes" oninput="mascara_mes(this)" class="block mt-1 w-full" type="numeric" name="mes" required autocomplete="mes" />
+                <x-jet-input id="mes" placeholder="mes" oninput="mascara_mes(this)" class="block mt-1 w-full" type="numeric" name="mes" required autocomplete="mes" />
             </div>
             <div class="mt-4">
                 <x-jet-label for="ano" class="text-white" value="{{ __('Ano') }}" />
-                <x-jet-input id="ano" oninput="mascara_ano(this)" class="block mt-1 w-full" type="numeric" name="ano" required autocomplete="ano" />
+                <x-jet-input id="ano" placeholder="ano" oninput="mascara_ano(this)" class="block mt-1 w-full" type="numeric" name="ano" required autocomplete="ano" />
             </div>
 
             <div class="flex items-center justify-end mt-4">

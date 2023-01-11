@@ -35,7 +35,7 @@ class ControllerGasto extends Controller
 
         if($valores->mes == $mes && $valores->ano == $ano){
             
-            $total = $total + $valores->valor;
+ 
             return view('informacoes.ver-gasto', ['gasto' => $gasto, 'mes'=> $mes, 'ano'=>$ano, 'total'=>$total]);
         }
         else{

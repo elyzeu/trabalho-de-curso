@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->double('valor', 8, 2);
             $table->string('descricao');
-            $table->date('data');
+            $table->text('data');
             $table->double('mes');
             $table->double('ano');
             $table->timestamps();

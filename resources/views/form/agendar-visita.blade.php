@@ -19,15 +19,15 @@
 
             <div class="mt-4">
                 <x-jet-label for="email" class="text-white" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                <x-jet-input id="email" placeholder="email@gmail.com" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
             <div class="mt-4">
-                <x-jet-label for="descricao" class="text-white" value="{{ __('Descricao') }}" />
-                <x-jet-input id="descricao" class="block mt-1 w-full" type="text" name="descricao" :value="old('descricao')" required />
+                <x-jet-label for="descricao" class="text-white" value="{{ __('Descrição') }}" />
+                <x-jet-input id="descricao" placeholder="descrição" class="block mt-1 w-full" type="text" name="descricao" :value="old('descricao')" required />
             </div>
             <div class="mt-4">
                 <x-jet-label for="nome" class="text-white" value="{{ __('Nome') }}" />
-                <x-jet-input id="nome" class="block mt-1 w-full" type="text" name="nome" :value="old('nome')" required />
+                <x-jet-input id="nome" placeholder="nome" class="block mt-1 w-full" type="text" name="nome" :value="old('nome')" required />
             </div>
 
             <div class="mt-4">
