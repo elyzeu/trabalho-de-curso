@@ -18,8 +18,8 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->text('cpf');
-            $table->date('data_nascimento');
-            $table->date('admissao');
+            $table->text('data_nascimento');
+            $table->text('admissao');
             $table->string('cargo');
             $table->string('lotacao');
             $table->string('rg');

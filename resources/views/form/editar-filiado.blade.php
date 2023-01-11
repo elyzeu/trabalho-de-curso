@@ -14,6 +14,33 @@ function mascara(i){
    if (v.length == 11) i.value += "-";
 
 }
+function mascara_nascimento(i){
+   
+   var v = i.value;
+   
+   if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
+      i.value = v.substring(0, v.length-1);
+      return;
+   }
+   
+   i.setAttribute("maxlength", "10");
+   if (v.length == 2) i.value += "/";
+   if (v.length == 5) i.value += "/";
+
+}
+function mascarad(i){
+   
+   var v = i.value;
+   
+   if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
+      i.value = v.substring(0, v.length-1);
+      return;
+   }
+   
+   i.setAttribute("maxlength", "8");
+   if (v.length == 3) i.value += "/";
+
+}
  </script>
 
 <x-app-layout>
@@ -47,11 +74,11 @@ function mascara(i){
         
             <div class="mt-4">
                 <x-jet-label for="data_nascimento" class="text-white" value="{{ __('Data de Nascimento') }}" />
-                <x-jet-input id="data_nascimento" placeholder="__/__/__" oninput="mascara_nascimento(this)" class="block mt-1 w-full" type="text" name="data_nascimento" required autocomplete="data_nascimento" />
+                <x-jet-input id="data_nascimento" oninput="mascara_nascimento(this)" placeholder="__/__/__" oninput="mascara_nascimento(this)" class="block mt-1 w-full" type="text" name="data_nascimento" required autocomplete="data_nascimento" />
             </div>
             <div class="mt-4">
                 <x-jet-label for="admissao" class="text-white" value="{{ __('Data de Admissao') }}" />
-                <x-jet-input id="admissao" class="block mt-1 w-full" placeholder="__/__/__" oninput="mascara_nascimento(this)" type="text" name="admissao" required autocomplete="admissao" />
+                <x-jet-input id="admissao" oninput="mascara_nascimento(this)" class="block mt-1 w-full" placeholder="__/__/__" oninput="mascara_nascimento(this)" type="text" name="admissao" required autocomplete="admissao" />
             </div>
             <div class="mt-4">
                 <x-jet-label for="cargo" class="text-white" value="{{ __('Cargo') }}" />
